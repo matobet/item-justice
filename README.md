@@ -5,10 +5,11 @@ Simple game item namagement application using Spring and AngularJS.
 
 ### Depencencies
 
-* maven 3+
 * java 8+
+* maven 3+
+* node.js
 
-### Build
+### Build & Run
 
 #### Development
 
@@ -16,5 +17,5 @@ Simple game item namagement application using Spring and AngularJS.
 
 #### Production
 
-    mvn package -Pprod
+    mvn package
     java -jar target/item-justice-1.0-SNAPSHOT.jar

@@ -2,3 +2,9 @@
 *.jar
 target
 *.iml
+node_modules
+dist
+.tmp
+.sass-cache
+frontend/bower_components
+src/main/resources/static

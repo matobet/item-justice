@@ -19,6 +19,8 @@
     <angularjs.version>1.2.19</angularjs.version>
     <bootstrap.version>3.2.0</bootstrap.version>
     <spring-boot-jersey.version>1.0.0.M1</spring-boot-jersey.version>
+    <yeoman-maven-plugin.version>0.2</yeoman-maven-plugin.version>
+    <commons-lang.version>2.6</commons-lang.version>
   </properties>
 
   <dependencies>
@@ -30,10 +32,6 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -51,16 +49,10 @@
       <artifactId>hsqldb</artifactId>
     </dependency>
 
-    <!-- WebJars Dependencies -->
     <dependency>
-      <groupId>org.webjars</groupId>
-      <artifactId>angularjs</artifactId>
-      <version>${angularjs.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.webjars</groupId>
-      <artifactId>bootstrap</artifactId>
-      <version>${bootstrap.version}</version>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${commons-lang.version}</version>
     </dependency>
   </dependencies>
 
@@ -69,6 +61,39 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.github.trecloux</groupId>
+        <artifactId>yeoman-maven-plugin</artifactId>
+        <version>${yeoman-maven-plugin.version}</version>
+        <configuration>
+          <yeomanProjectDirectory>${project.basedir}</yeomanProjectDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <id>run-grunt</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>src/main/resources/static</directory>
+            </fileset>
+            <fileset>
+              <directory>dist</directory>
+            </fileset>
+            <fileset>
+              <directory>.tmp</directory>
+            </fileset>
+          </filesets>
+        </configuration>
       </plugin>
     </plugins>
   </build>
