@@ -1,6 +1,7 @@
 package com.matobet.itemjustice.rest;
 
 import org.springframework.stereotype.Component;
+import org.springframework.test.annotation.Timed;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
